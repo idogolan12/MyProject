@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".hangm"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_height="263dp"
+        android:layout_width="333dp"
+        app:srcCompat="@drawable/a"
+        android:background="@null"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/iv"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="92dp"
+        android:layout_width="match_parent"
+        android:background="@null"
+        android:layout_marginTop="30dp"
+        android:id="@+id/LLLet" android:gravity="center"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="center"/>
+
+    <GridLayout android:layout_height="114dp"
+        android:layout_width="match_parent"
+        android:background="@null"
+        android:layout_marginTop="0dp"
+        android:id="@+id/BGT"
+        android:layout_gravity="center"
+        android:columnCount="7"> </GridLayout>
+
+</LinearLayout>
