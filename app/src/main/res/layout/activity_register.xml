@@ -7,7 +7,7 @@
     tools:context=".register">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv1"
         android:layout_width="145dp"
         android:layout_height="43dp"
         android:gravity="center"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.094" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/etnick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -34,7 +34,7 @@
         app:layout_constraintVertical_bias="0.272" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/etpass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.384" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/etmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/etphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -75,7 +75,7 @@
         app:layout_constraintVertical_bias="0.619" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tv6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="שם משתמש"
@@ -87,7 +87,7 @@
         app:layout_constraintVertical_bias="0.28" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/tv7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="סיסמא"
@@ -99,7 +99,7 @@
         app:layout_constraintVertical_bias="0.384" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/tv8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="אימייל"
@@ -122,7 +122,7 @@
         app:layout_constraintVertical_bias="0.612" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/bt3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="tohome"
