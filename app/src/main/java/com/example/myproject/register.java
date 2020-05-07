@@ -95,16 +95,31 @@ public class register extends AppCompatActivity implements View.OnClickListener 
     }
 
    private void go_regist() {
+        //adding reshuma in users table
         ContentValues cv=new ContentValues();
-        cv.put(my_db.NICKNAME, infa[0]);
-        cv.put(my_db.PASS, infa[1]);
-        cv.put(my_db.EMAIL, infa[2]);
-        cv.put(my_db.PHONE, infa[3]);
+        cv.put(DBHelper.NICKNAME, infa[0]);
+        cv.put(DBHelper.PASS, infa[1]);
+        cv.put(DBHelper.EMAIL, infa[2]);
+        cv.put(DBHelper.PHONE, infa[3]);
 
         sqdb=my_db.getWritableDatabase();
-        sqdb.insert(my_db.TABLE_NAME, null, cv);
+        sqdb.insert(DBHelper.TABLE_NAME, null, cv);
         sqdb.close();
-        Intent goStart=new Intent(this, home.class);
+
+       //adding reshuma in grades table
+       cv=new ContentValues();
+       cv.put(DBHelper.NICKNAME, infa[0]);
+       cv.put(DBHelper.PASS, infa[1]);
+       cv.put(DBHelper.SUBJECTS[0], "0");
+       cv.put(DBHelper.SUBJECTS[1], "0");
+       cv.put(DBHelper.SUBJECTS[2], "0");
+
+       sqdb=my_db.getWritableDatabase();
+       sqdb.insert(DBHelper.TABLE_NAME2, null, cv);
+       sqdb.close();
+
+       MainActivity.USER = infa[0];
+       Intent goStart=new Intent(this, home.class);
         startActivity(goStart);
     }
 

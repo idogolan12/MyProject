@@ -13,7 +13,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public static String CPass = ""; //use for the current user!
 
     public static final String TABLE_NAME = "all_users";
-    public static final String UID = "_id"; //naor: for the auto primary key
     public static final String NICKNAME = "Nickname";
     public static final String PASS = "Pass";
     public static final String EMAIL = "Email";
@@ -34,7 +33,6 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         SQL_Create="CREATE TABLE "+TABLE_NAME+" (";
-        SQL_Create+="_id INTEGER PRIMARY KEY AUTOINCREMENT, ";
         SQL_Create+=NICKNAME+" TEXT, ";
         SQL_Create+=PASS+" TEXT, ";
         SQL_Create+=EMAIL+" TEXT, ";
@@ -42,11 +40,11 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(SQL_Create);
 
         SQL_Create="CREATE TABLE "+TABLE_NAME2+" (";
-        SQL_Create+="_id INTEGER PRIMARY KEY AUTOINCREMENT, ";
+        SQL_Create+=NICKNAME+" TEXT, ";
         SQL_Create+=PASS+" TEXT, ";
         SQL_Create+=SUBJECTS[0]+" TEXT, ";
         SQL_Create+=SUBJECTS[1]+" TEXT, ";
-        SQL_Create+=SUBJECTS[2]+" TEXT, ";
+        SQL_Create+=SUBJECTS[2]+" TEXT);";
         sqLiteDatabase.execSQL(SQL_Create);
     }
 

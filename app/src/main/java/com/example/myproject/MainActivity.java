@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    public static String USER = "";
+
     SQLiteDatabase sqdb;
     DBHelper my_db;
     Button btnGolog;
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         my_db=new DBHelper(this);
         sqdb=my_db.getWritableDatabase();
         sqdb.close();
@@ -54,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this,
                     "Ok",
                     Toast.LENGTH_LONG).show();
+            USER = infa[0];
             Intent goStart=new Intent(this, home.class);
             startActivity(goStart);
         }

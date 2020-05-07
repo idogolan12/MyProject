@@ -3,8 +3,10 @@ package com.example.myproject;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +14,7 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,6 +26,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
     int aa = 0;
     Intent go;
     String av;
+    int grade = 0;
     GridLayout BGT;
     LinearLayout LLLet;
     int btnWidth = 100, btnHeight = 100;
@@ -53,7 +57,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
         BGT.setColumnCount(11);
         newGame();
         Build_board2();
-
+        Toast.makeText(this, "Hello " + MainActivity.USER, Toast.LENGTH_SHORT).show();
 
     }
 
@@ -134,6 +138,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
 
                         counter++;
                         if (counter == av.length()) {
+                            grade++;
                             AlertDialog.Builder ads = new AlertDialog.Builder(this);
                             ads.setTitle("כל הכבוד!                                              ");
                             ads.setMessage("הצלחת לנחש את המילה" + " " + "*" + av + "*" + "\n" + "מה ברצונך לעשות?");
@@ -150,6 +155,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
                             ads.setNegativeButton("לצאת", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
+                                    UpdateGrade(grade);
                                     go = new Intent(getApplicationContext(),home.class);
                                     startActivity(go);
                                 }
@@ -183,6 +189,25 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
             }
         }
         v.setId(R.id.b2);
+    }
+
+    private void UpdateGrade(int grade) {
+        Toast.makeText(hangm.this, "grade: " + grade, Toast.LENGTH_SHORT).show();
+        DBHelper hlp = new DBHelper(this);;
+        SQLiteDatabase db = hlp.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        if (wordesType.equals("a"))
+            cv.put(DBHelper.SUBJECTS[0], ""+grade); //?
+            db.update(DBHelper.TABLE_NAME2,cv,DBHelper.NICKNAME+"=?",new String[] {MainActivity.USER});
+            db.close();
+        if (wordesType.equals("b"))
+            cv.put(DBHelper.SUBJECTS[1], ""+grade); //?
+            db.update(DBHelper.TABLE_NAME2,cv,DBHelper.NICKNAME+"=?",new String[] {MainActivity.USER});
+            db.close();
+        if (wordesType.equals("c"))
+            cv.put(DBHelper.SUBJECTS[2], ""+grade); //?
+            db.update(DBHelper.TABLE_NAME2,cv,DBHelper.NICKNAME+"=?",new String[] {MainActivity.USER});
+            db.close();
     }
 
 
