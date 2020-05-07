@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
@@ -196,18 +198,40 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
         DBHelper hlp = new DBHelper(this);;
         SQLiteDatabase db = hlp.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        if (wordesType.equals("a"))
-            cv.put(DBHelper.SUBJECTS[0], ""+grade); //?
-            db.update(DBHelper.TABLE_NAME2,cv,DBHelper.NICKNAME+"=?",new String[] {MainActivity.USER});
-            db.close();
+        Cursor c = db.query(DBHelper.TABLE_NAME2, null, DBHelper.NICKNAME+"=?", new String[]{MainActivity.USER},
+                null,null,null);
+        c.moveToFirst(); //?
+        String oldGrade = "";
         if (wordesType.equals("b"))
-            cv.put(DBHelper.SUBJECTS[1], ""+grade); //?
-            db.update(DBHelper.TABLE_NAME2,cv,DBHelper.NICKNAME+"=?",new String[] {MainActivity.USER});
-            db.close();
+        {
+            oldGrade = c.getString(c.getColumnIndex(DBHelper.SUBJECTS[0]));
+            if (grade > Integer.parseInt(oldGrade))
+            {
+                cv.put(DBHelper.SUBJECTS[0], "" + grade);
+                db.update(DBHelper.TABLE_NAME2, cv, DBHelper.NICKNAME + "=?", new String[]{MainActivity.USER});
+                db.close();
+            }
+        }
         if (wordesType.equals("c"))
-            cv.put(DBHelper.SUBJECTS[2], ""+grade); //?
-            db.update(DBHelper.TABLE_NAME2,cv,DBHelper.NICKNAME+"=?",new String[] {MainActivity.USER});
-            db.close();
+        {
+            oldGrade = c.getString(c.getColumnIndex(DBHelper.SUBJECTS[1]));
+            if (grade > Integer.parseInt(oldGrade) )
+            {
+                cv.put(DBHelper.SUBJECTS[1], "" + grade); //?
+                db.update(DBHelper.TABLE_NAME2, cv, DBHelper.NICKNAME + "=?", new String[]{MainActivity.USER});
+                db.close();
+            }
+        }
+        if (wordesType.equals("a"))
+        {
+            oldGrade = c.getString(c.getColumnIndex(DBHelper.SUBJECTS[2]));
+            if(grade > Integer.parseInt(oldGrade))
+            {
+                cv.put(DBHelper.SUBJECTS[2], "" + grade); //?
+                db.update(DBHelper.TABLE_NAME2, cv, DBHelper.NICKNAME + "=?", new String[]{MainActivity.USER});
+                db.close();
+            }
+        }
     }
 
 
