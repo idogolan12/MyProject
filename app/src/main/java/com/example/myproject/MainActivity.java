@@ -44,7 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         infa[1] = etPassLog.getText().toString();
         etNickLog.setText("");
         etPassLog.setText("");
-        if (is_empty()) {
+        if (is_empty())
+        {
             Intent goReg=new Intent(this, register.class);
             startActivity(goReg);
             return;

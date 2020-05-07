@@ -12,13 +12,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class register extends AppCompatActivity implements View.OnClickListener{
+public class register extends AppCompatActivity implements View.OnClickListener {
 
     SQLiteDatabase sqdb;
     DBHelper my_db;
     Button bt3;
-    EditText etnick,etpass,etmail,etphone;
+    EditText etnick, etpass, etmail, etphone;
     String[] infa = new String[4];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,10 +49,8 @@ public class register extends AppCompatActivity implements View.OnClickListener{
         etphone.setText("");
 
 
-        if (is_empty()) { //naor: why not to chek that in the is_found function?
-            go_regist();
-            return;
-        }
+
+
         if (is_found(infa[0], infa[1])) {
             Toast.makeText(this,
                     "This name and pass is found",
@@ -66,7 +65,7 @@ public class register extends AppCompatActivity implements View.OnClickListener{
         sqdb=my_db.getWritableDatabase();
         Cursor c=sqdb.query(DBHelper.TABLE_NAME,
                 null, null, null, null, null, null);
-        int col1=c.getColumnIndex(DBHelper.NICKNAME);
+       int col1=c.getColumnIndex(DBHelper.NICKNAME);
         int col2=c.getColumnIndex(DBHelper.PASS);
         c.moveToFirst();
         while (!c.isAfterLast()) {
@@ -95,7 +94,7 @@ public class register extends AppCompatActivity implements View.OnClickListener{
         return (count==0);
     }
 
-    private void go_regist() {
+   private void go_regist() {
         ContentValues cv=new ContentValues();
         cv.put(my_db.NICKNAME, infa[0]);
         cv.put(my_db.PASS, infa[1]);
@@ -109,5 +108,6 @@ public class register extends AppCompatActivity implements View.OnClickListener{
         startActivity(goStart);
     }
 
-}
+    }
+
 
