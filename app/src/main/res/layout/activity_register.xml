@@ -7,7 +7,7 @@
     tools:context=".register">
 
     <TextView
-        android:id="@+id/tv1"
+        android:id="@+id/tv6"
         android:layout_width="145dp"
         android:layout_height="43dp"
         android:gravity="center"
@@ -75,7 +75,7 @@
         app:layout_constraintVertical_bias="0.619" />
 
     <TextView
-        android:id="@+id/tv6"
+        android:id="@+id/tv7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="שם משתמש"
@@ -87,7 +87,7 @@
         app:layout_constraintVertical_bias="0.28" />
 
     <TextView
-        android:id="@+id/tv7"
+        android:id="@+id/tv8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="סיסמא"
@@ -99,7 +99,7 @@
         app:layout_constraintVertical_bias="0.384" />
 
     <TextView
-        android:id="@+id/tv8"
+        android:id="@+id/tv9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="אימייל"
@@ -110,7 +110,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/tv10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="מספר טלפון"
@@ -122,10 +122,9 @@
         app:layout_constraintVertical_bias="0.612" />
 
     <Button
-        android:id="@+id/bt3"
+        android:id="@+id/bt4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="tohome"
         android:text="הירשם"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

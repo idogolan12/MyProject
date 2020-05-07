@@ -135,7 +135,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
                     if (((Button) v).getText().equals(av.charAt(i) + "")) {
                         tv[av.length() - i - 1].setText(((Button) v).getText());
                         v.setBackgroundColor(0xFF00FF00);
-                        v.setId(R.id.bt1);
+                        //
 
 
                         counter++;
@@ -181,7 +181,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
                     aa++;
                     //Toast.makeText(this, "dosen't exist", Toast.LENGTH_SHORT).show();
                     v.setBackgroundColor(0xFFFF0000);
-                    v.setId(R.id.bt1);
+                    //
                 }
                 else
                 {
@@ -190,7 +190,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
                 }
             }
         }
-        v.setId(R.id.b2);
+        //
     }
 
     private void UpdateGrade(int grade) {
