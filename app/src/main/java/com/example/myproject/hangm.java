@@ -217,7 +217,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
             oldGrade = c.getString(c.getColumnIndex(DBHelper.SUBJECTS[1]));
             if (grade > Integer.parseInt(oldGrade) )
             {
-                cv.put(DBHelper.SUBJECTS[1], "" + grade); //?
+                cv.put(DBHelper.SUBJECTS[1], "" + grade);
                 db.update(DBHelper.TABLE_NAME2, cv, DBHelper.NICKNAME + "=?", new String[]{MainActivity.USER});
                 db.close();
             }
@@ -227,7 +227,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
             oldGrade = c.getString(c.getColumnIndex(DBHelper.SUBJECTS[2]));
             if(grade > Integer.parseInt(oldGrade))
             {
-                cv.put(DBHelper.SUBJECTS[2], "" + grade); //?
+                cv.put(DBHelper.SUBJECTS[2], "" + grade);
                 db.update(DBHelper.TABLE_NAME2, cv, DBHelper.NICKNAME + "=?", new String[]{MainActivity.USER});
                 db.close();
             }
