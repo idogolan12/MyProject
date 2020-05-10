@@ -20,12 +20,11 @@ public class UserGrades {
     @Override
     public String toString() {
         return "UserGrades{" +
-                "nickname='" + nickname + '\'' +
-                ", password='" + password + '\'' +
-                ", countries='" + countries + '\'' +
-                ", cities='" + cities + '\'' +
-                ", animals='" + animals + '\'' +
-                '}';
+                "nickname=" + nickname + '\n' +
+                "password=" + password + '\n' +
+                "countries=" + countries + '\n' +
+                "cities=" + cities + '\n' +
+                "animals=" + animals + '\n' ;
     }
 
     public String getNickname() {

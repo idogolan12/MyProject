@@ -119,6 +119,7 @@ public class register extends AppCompatActivity implements View.OnClickListener 
        sqdb.close();
 
        MainActivity.USER = infa[0];
+       MainActivity.PASS = infa[1];
        Intent goStart=new Intent(this, home.class);
         startActivity(goStart);
     }

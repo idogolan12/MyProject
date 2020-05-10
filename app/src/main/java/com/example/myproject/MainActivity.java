@@ -14,6 +14,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static String USER = "";
+    public static String PASS = "";
 
     SQLiteDatabase sqdb;
     DBHelper my_db;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     "Ok",
                     Toast.LENGTH_LONG).show();
             USER = infa[0];
+            PASS = infa[1];
             Intent goStart=new Intent(this, home.class);
             startActivity(goStart);
         }
