@@ -135,7 +135,8 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
                     if (((Button) v).getText().equals(av.charAt(i) + "")) {
                         tv[av.length() - i - 1].setText(((Button) v).getText());
                         v.setBackgroundColor(0xFF00FF00);
-                        //
+                        v.setId(R.id.bt1);
+
 
 
                         counter++;
@@ -150,6 +151,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
                                     for (int i = 0 ; i < bt.length; i++)
                                     {
                                         bt[i].setBackgroundColor(0xFFFFFFF9);
+                                        bt[i].setId(R.id.bt2);
                                     }
                                     newGame();
                                 }
@@ -181,7 +183,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
                     aa++;
                     //Toast.makeText(this, "dosen't exist", Toast.LENGTH_SHORT).show();
                     v.setBackgroundColor(0xFFFF0000);
-                    //
+                    v.setId(R.id.bt1);
                 }
                 else
                 {
@@ -190,7 +192,6 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
                 }
             }
         }
-        //
     }
 
     private void UpdateGrade(int grade) {
