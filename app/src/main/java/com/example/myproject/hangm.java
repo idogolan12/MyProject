@@ -199,8 +199,11 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
         DBHelper hlp = new DBHelper(this);;
         SQLiteDatabase db = hlp.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        Cursor c = db.query(DBHelper.TABLE_NAME2, null, DBHelper.NICKNAME+"=?", new String[]{MainActivity.USER},
-                null,null,null);
+
+        String whereFind=DBHelper.NICKNAME+"=? AND "+DBHelper.PASS+"=?";
+        String[] whatFind=new String[] {MainActivity.USER, MainActivity.PASS};
+
+        Cursor c = db.query(DBHelper.TABLE_NAME2, null, whereFind, whatFind, null,null,null);
         c.moveToFirst(); //?
         String oldGrade = "";
         if (wordesType.equals("b"))
@@ -209,7 +212,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
             if (grade > Integer.parseInt(oldGrade))
             {
                 cv.put(DBHelper.SUBJECTS[0], "" + grade);
-                db.update(DBHelper.TABLE_NAME2, cv, DBHelper.NICKNAME + "=?", new String[]{MainActivity.USER});
+                db.update(DBHelper.TABLE_NAME2, cv, whereFind, whatFind);
                 db.close();
             }
         }
@@ -219,7 +222,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
             if (grade > Integer.parseInt(oldGrade) )
             {
                 cv.put(DBHelper.SUBJECTS[1], "" + grade);
-                db.update(DBHelper.TABLE_NAME2, cv, DBHelper.NICKNAME + "=?", new String[]{MainActivity.USER});
+                db.update(DBHelper.TABLE_NAME2, cv, whereFind, whatFind);
                 db.close();
             }
         }
@@ -229,7 +232,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
             if(grade > Integer.parseInt(oldGrade))
             {
                 cv.put(DBHelper.SUBJECTS[2], "" + grade);
-                db.update(DBHelper.TABLE_NAME2, cv, DBHelper.NICKNAME + "=?", new String[]{MainActivity.USER});
+                db.update(DBHelper.TABLE_NAME2, cv, whereFind, whatFind);
                 db.close();
             }
         }
@@ -245,6 +248,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
         adb.setPositiveButton("לשחק שוב באותו נושא", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                UpdateGrade(grade);
                 go = new Intent(getApplicationContext(),hangm.class);
                 go.putExtra("wordesType",wordesType.toString());
                 startActivity(go);
@@ -253,6 +257,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
         adb.setNeutralButton("משחקי איש תלוי בנושאים אחרים", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                UpdateGrade(grade);
                 go = new Intent(getApplicationContext(), sbchangman.class);
                 startActivity(go);
 
@@ -262,6 +267,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
         adb.setNegativeButton("לצאת", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                UpdateGrade(grade);
                 go = new Intent(getApplicationContext(),home.class);
                 startActivity(go);
             }
