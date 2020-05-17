@@ -195,7 +195,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void UpdateGrade(int grade) {
-        Toast.makeText(hangm.this, "grade: " + grade, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(hangm.this, "grade: " + grade, Toast.LENGTH_SHORT).show();
         DBHelper hlp = new DBHelper(this);;
         SQLiteDatabase db = hlp.getWritableDatabase();
         ContentValues cv = new ContentValues();
