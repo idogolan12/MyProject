@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.provider.SyncStateContract;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
@@ -103,6 +104,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
         for (int i = 0; i < NumLet; i++) {
             tv[i] = new TextView(LLLet.getContext());
             LLLet.addView(tv[i], btnWidth, btnHeight);
+            tv[i].setGravity(Gravity.CENTER);
             tv[i].setText("____");
             if (st1.charAt(i) == ' ') {
                 tv[i].setVisibility(View.INVISIBLE);
