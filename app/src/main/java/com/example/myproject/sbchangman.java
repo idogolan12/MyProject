@@ -67,20 +67,5 @@ public class sbchangman extends AppCompatActivity {
         startActivity(go);
     }
 
-    public void gograde(View view) {
 
-        DBHelper hlp = new DBHelper(this);;
-        SQLiteDatabase db = hlp.getWritableDatabase();
-        Cursor c = db.query(DBHelper.TABLE_NAME2, null, DBHelper.NICKNAME+"=?", new String[]{MainActivity.USER},
-                null,null,null);
-        c.moveToFirst(); //?
-
-        String grades = "";
-        grades +=  "countries: " + c.getString(c.getColumnIndex(DBHelper.SUBJECTS[0]));
-        grades +=  "\n" + "cities: " + c.getString(c.getColumnIndex(DBHelper.SUBJECTS[1]));
-        grades +=  "\n" +"animals: " + c.getString(c.getColumnIndex(DBHelper.SUBJECTS[2]));
-        Toast.makeText(this, grades, Toast.LENGTH_SHORT).show();
-
-        db.close();
-    }
 }
