@@ -4,16 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/hangman12"
     tools:context=".hangm"
     android:orientation="vertical">
+
     <ImageView
-        android:layout_height="263dp"
+        android:id="@+id/iv"
         android:layout_width="333dp"
-        app:srcCompat="@drawable/a"
-        android:background="@null"
-        android:layout_marginTop="50dp"
+        android:layout_height="263dp"
         android:layout_marginLeft="40dp"
-        android:id="@+id/iv"/>
+
+        android:layout_marginTop="50dp"
+        android:background="@null"
+        app:srcCompat="@drawable/a" />
 
     <LinearLayout
         android:orientation="horizontal"
