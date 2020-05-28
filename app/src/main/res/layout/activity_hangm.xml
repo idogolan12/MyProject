@@ -13,8 +13,7 @@
         android:layout_width="333dp"
         android:layout_height="263dp"
         android:layout_marginLeft="40dp"
-
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:background="@null"
         app:srcCompat="@drawable/a" />
 
@@ -23,17 +22,19 @@
         android:layout_height="92dp"
         android:layout_width="match_parent"
         android:background="@null"
-        android:layout_marginTop="30dp"
-        android:id="@+id/LLLet" android:gravity="center"
+        android:layout_marginTop="-10dp"
+        android:id="@+id/LLLet"
+        android:gravity="center"
         android:layout_marginBottom="30dp"
         android:layout_gravity="center"/>
 
-    <GridLayout android:layout_height="114dp"
+    <GridLayout
+        android:layout_height="114dp"
         android:layout_width="match_parent"
         android:background="@null"
-        android:layout_marginTop="0dp"
         android:id="@+id/BGT"
         android:layout_gravity="center"
-        android:columnCount="7"> </GridLayout>
+        android:columnCount="7"
+        > </GridLayout>
 
 </LinearLayout>

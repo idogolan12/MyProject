@@ -58,6 +58,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
         Intent i = getIntent();
         wordesType = i.getStringExtra("wordesType");
         BGT.setColumnCount(11);
+        //IV.getBackground().setAlpha(64);
         newGame();
         Build_board2();
         Toast.makeText(this, "Hello " + MainActivity.USER, Toast.LENGTH_SHORT).show();
@@ -95,7 +96,6 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
         tv = new TextView[words.get(num).length()];
         Build_board1(words.get(num).length() , words.get(num));
         av = words.get(num);
-
     }
 
 
@@ -122,7 +122,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
             bt[i].setText(ab);
             bt[i].setOnClickListener(this);
             bt[i].setBackgroundColor(0xFFFFFFF9);
-
+            bt[i].getBackground().setAlpha(64);
         }
 
     }
@@ -153,6 +153,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
                                     for (int i = 0 ; i < bt.length; i++)
                                     {
                                         bt[i].setBackgroundColor(0xFFFFFFF9);
+                                        bt[i].getBackground().setAlpha(64);
                                         bt[i].setId(R.id.bt2);
                                     }
                                     newGame();
