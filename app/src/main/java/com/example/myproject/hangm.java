@@ -28,8 +28,10 @@ import java.util.ArrayList;
 public class hangm extends AppCompatActivity implements View.OnClickListener {
     int aa = 0;
     Intent go;
+    int i1 , i2 = 0;
     String av;
     int grade = 0;
+    Button bt8 , bt9;
     GridLayout BGT;
     LinearLayout LLLet;
     int btnWidth = 100, btnHeight = 100;
@@ -53,6 +55,8 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hangm);
+        bt8 = findViewById(R.id.bt8);
+        bt9 = findViewById(R.id.bt9);
         BGT = findViewById(R.id.BGT);
         IV = findViewById(R.id.iv);
         Intent i = getIntent();
@@ -138,12 +142,11 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
                         tv[av.length() - i - 1].setText(((Button) v).getText());
                         v.setBackgroundColor(0xFF00FF00);
                         v.setId(R.id.bt1);
-
-
-
                         counter++;
                         if (counter == av.length()) {
+                            i2++;
                             grade++;
+                            bt9.setText(i2 + "");
                             AlertDialog.Builder ads = new AlertDialog.Builder(this);
                             ads.setTitle("כל הכבוד!                                              ");
                             ads.setMessage("הצלחת לנחש את המילה" + " " + "*" + av + "*" + "\n" + "מה ברצונך לעשות?");
@@ -155,6 +158,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
                                         bt[i].setBackgroundColor(0xFFFFFFF9);
                                         bt[i].getBackground().setAlpha(64);
                                         bt[i].setId(R.id.bt2);
+
                                     }
                                     newGame();
                                 }
@@ -184,12 +188,16 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
                 {
                     IV.setImageResource(IVS[aa]);
                     aa++;
+                    i1 = Integer.parseInt(bt8.getText().toString()) - 1 ;
+                    bt8.setText(i1 + "");
                     //Toast.makeText(this, "dosen't exist", Toast.LENGTH_SHORT).show();
                     v.setBackgroundColor(0xFFFF0000);
                     v.setId(R.id.bt1);
                 }
                 else
                 {
+                    i1 = Integer.parseInt(bt8.getText().toString()) - 1 ;
+                    bt8.setText(i1 + "");
                     IV.setImageResource(IVS[aa]);
                     finishGame();
                 }
