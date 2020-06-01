@@ -9,13 +9,15 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,14 +30,15 @@ import java.util.ArrayList;
 public class hangm extends AppCompatActivity implements View.OnClickListener {
     int aa = 0;
     Intent go;
-    int i1 , i2 = 0;
+    int mistake , score = 0;
     String av;
     int grade = 0;
     Button bt8 , bt9;
     GridLayout BGT;
     LinearLayout LLLet;
     int btnWidth = 100, btnHeight = 100;
-    String a = "כיטחזוהדגבאתשרקצפעסנמלץףךןם";
+    //String a = "כיטחזוהדגבאתשרקצפעסנמלץףךןם"; //FOR ENGLISH
+    String a = "אבגדהוזחטיכלמנסעפצקרשתךףץםן"; //FOR HEBREW
     int G = a.length();
     Button[] bt = new Button[G];
     TextView[] tv;
@@ -66,8 +69,9 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
         newGame();
         Build_board2();
         Toast.makeText(this, "Hello " + MainActivity.USER, Toast.LENGTH_SHORT).show();
-
     }
+
+
 
     private void newGame() {
         counter = 0;
@@ -121,7 +125,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
         //BGT.clear...
         for (int i = 0; i < bt.length; i++) {
             bt[i] = new Button(BGT.getContext());
-            BGT.addView(bt[i], btnWidth, btnHeight);
+            BGT.addView(bt[i], btnHeight, btnWidth);
             String ab = a.charAt(i) + "";
             bt[i].setText(ab);
             bt[i].setOnClickListener(this);
@@ -139,14 +143,15 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
             if (av.indexOf(((Button) v).getText().toString()) != -1) {
                 for (int i = 0; i < av.length(); i++) {
                     if (((Button) v).getText().equals(av.charAt(i) + "")) {
-                        tv[av.length() - i - 1].setText(((Button) v).getText());
+                        //tv[av.length() - i -1].setText(((Button) v).getText());//FOR ENGLISH
+                        tv[i].setText(((Button) v).getText()); //FOR HEBREW
                         v.setBackgroundColor(0xFF00FF00);
                         v.setId(R.id.bt1);
                         counter++;
                         if (counter == av.length()) {
-                            i2++;
+                            score++;
                             grade++;
-                            bt9.setText(i2 + "");
+                            bt9.setText(score + "");
                             AlertDialog.Builder ads = new AlertDialog.Builder(this);
                             ads.setTitle("כל הכבוד!                                              ");
                             ads.setMessage("הצלחת לנחש את המילה" + " " + "*" + av + "*" + "\n" + "מה ברצונך לעשות?");
@@ -188,16 +193,16 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
                 {
                     IV.setImageResource(IVS[aa]);
                     aa++;
-                    i1 = Integer.parseInt(bt8.getText().toString()) - 1 ;
-                    bt8.setText(i1 + "");
+                    mistake = Integer.parseInt(bt8.getText().toString()) - 1 ;
+                    bt8.setText(mistake + "");
                     //Toast.makeText(this, "dosen't exist", Toast.LENGTH_SHORT).show();
                     v.setBackgroundColor(0xFFFF0000);
                     v.setId(R.id.bt1);
                 }
                 else
                 {
-                    i1 = Integer.parseInt(bt8.getText().toString()) - 1 ;
-                    bt8.setText(i1 + "");
+                    mistake = Integer.parseInt(bt8.getText().toString()) - 1 ;
+                    bt8.setText(mistake + "");
                     IV.setImageResource(IVS[aa]);
                     finishGame();
                 }
