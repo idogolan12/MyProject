@@ -43,6 +43,10 @@ public class register extends AppCompatActivity implements View.OnClickListener 
         infa[1] = etpass.getText().toString();
         infa[2] = etmail.getText().toString();
         infa[3] = etphone.getText().toString();
+        if (infa[0].equals("") || infa[1].equals("") || infa[2].equals("") || infa[3].equals("")) {
+            Toast.makeText(this, "please fill in...", Toast.LENGTH_SHORT).show();
+            return;
+        }
         etnick.setText("");
         etpass.setText("");
         etmail.setText("");

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -116,7 +117,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
             tv[i].setText("____");
             if (st1.charAt(i) == ' ') {
                 tv[i].setVisibility(View.INVISIBLE);
-                counter=1;
+                counter=1; //TODO - bla..
             }
         }
     }
@@ -130,7 +131,8 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
             bt[i].setText(ab);
             bt[i].setOnClickListener(this);
             bt[i].setBackgroundColor(0xFFFFFFF9);
-            bt[i].getBackground().setAlpha(64);
+            bt[i].getBackground().setAlpha(50);
+            //TODO - need to fix ...
         }
 
     }
@@ -138,6 +140,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         String a = ((Button) v).getText().toString();
+        Log.d("ido1", "onClick: " + a);
         if (v.getId() != R.id.bt1)
         {
             if (av.indexOf(((Button) v).getText().toString()) != -1) {

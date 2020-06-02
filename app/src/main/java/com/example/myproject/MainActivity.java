@@ -47,6 +47,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         infa[0] = etNickLog.getText().toString();
         infa[1] = etPassLog.getText().toString();
+        if (infa[0].equals("") || infa[1].equals("")) {
+            Toast.makeText(this, "please fill in...", Toast.LENGTH_SHORT).show();
+            return;
+        }
         etNickLog.setText("");
         etPassLog.setText("");
         if (is_empty())
