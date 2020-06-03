@@ -9,18 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TheMouseAndTheChocolateGame"></activity>
-        <activity android:name=".themouseandthechocolate" />
-        <activity android:name=".Score" />
-        <activity android:name=".achievements" />
-        <activity android:name=".guide" />
-        <activity android:name=".credit" />
+        <activity android:name=".TicTacToeGame"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".TheMouseAndTheChocolateGame"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".themouseandthechocolate"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".achievements"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".guide"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".credit"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".hangm" />
-        <activity android:name=".hangman" />
         <activity android:name=".sbchangman" />
-        <activity android:name=".home" />
-        <activity android:name=".register" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".home"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".register"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

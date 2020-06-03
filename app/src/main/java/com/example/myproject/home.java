@@ -23,4 +23,9 @@ public class home extends AppCompatActivity {
         Intent go = new Intent(this,themouseandthechocolate.class);
         startActivity(go);
     }
+
+    public void gototictactoe(View view) {
+        Intent go = new Intent(this,TicTacToeGame.class);
+        startActivity(go);
+    }
 }
