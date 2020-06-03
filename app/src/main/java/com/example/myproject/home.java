@@ -18,4 +18,9 @@ public class home extends AppCompatActivity {
         Intent go = new Intent(this,sbchangman.class);
         startActivity(go);
     }
+
+    public void gotomouse(View view) {
+        Intent go = new Intent(this,themouseandthechocolate.class);
+        startActivity(go);
+    }
 }
