@@ -128,8 +128,8 @@ public class TicTacToeGame extends AppCompatActivity implements View.OnClickList
 
     }
     public void UpdatePointsTable(){
-        textViewPlayer1.setText("Player 1: " + player1points);
-        textViewPlayer2.setText("Player 1: " + player2points);
+        textViewPlayer1.setText("Player 1: " + " " + player1points);
+        textViewPlayer2.setText("Player 2: " + " " + player2points);
     }
     private void resetBoard() {
         for (int i = 0; i < 3; i++){
