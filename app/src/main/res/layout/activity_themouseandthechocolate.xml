@@ -1,43 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#f2f264"
+    android:background="@drawable/bg"
     tools:context=".themouseandthechocolate">
 
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-
-        android:text="Welcome"/>
+        android:layout_width="292dp"
+        android:layout_height="98dp"
+        android:gravity="center"
+        android:text="גודל לוח המשחק מורכב ממספר שורות וממספר רשומת בחר כמה שורות ורשומות תרצה לבנות"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/edLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.444" />
 
     <EditText
         android:id="@+id/edLine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:hint="Line number"/>
-
+        android:layout_width="211dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/custom_input"
+        android:hint="מספר שורה"
+        app:layout_constraintBottom_toTopOf="@+id/edRaw"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edRaw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Raw number"/>
+        android:layout_width="211dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="108dp"
+        android:background="@drawable/custom_input"
+        android:hint="מספר רשומה"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="150dp"
-        android:text="goToGame"
-        android:onClick="goToGame"/>
+        android:layout_marginBottom="148dp"
+        android:background="@drawable/custombutton"
+        android:onClick="goToGame"
+        android:text="התחל משחק"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

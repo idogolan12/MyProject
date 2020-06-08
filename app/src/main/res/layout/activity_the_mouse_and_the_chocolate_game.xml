@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#f2f264"
+    android:background="@drawable/bg"
     tools:context=".TheMouseAndTheChocolateGame">
 
 
