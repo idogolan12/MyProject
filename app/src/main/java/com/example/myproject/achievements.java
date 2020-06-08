@@ -31,7 +31,7 @@ public class achievements extends AppCompatActivity {
         while (!c.isAfterLast()) {
             String t1=c.getString(0);
             String t2=c.getString(1);
-            if (MainActivity.USER.equals(t1)&&MainActivity.PASS.equals(t2))
+            if (LoginActivity.USER.equals(t1)&&LoginActivity.PASS.equals(t2))
             {
                 coun.setText(c.getString(2));
                 cit.setText(c.getString(3));

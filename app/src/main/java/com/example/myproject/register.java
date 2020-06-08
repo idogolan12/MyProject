@@ -122,8 +122,8 @@ public class register extends AppCompatActivity implements View.OnClickListener 
        sqdb.insert(DBHelper.TABLE_NAME2, null, cv);
        sqdb.close();
 
-       MainActivity.USER = infa[0];
-       MainActivity.PASS = infa[1];
+       LoginActivity.USER = infa[0];
+       LoginActivity.PASS = infa[1];
        Intent goStart=new Intent(this, home.class);
         startActivity(goStart);
     }

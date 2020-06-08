@@ -69,7 +69,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
         //IV.getBackground().setAlpha(64);
         newGame();
         Build_board2();
-        Toast.makeText(this, "Hello " + MainActivity.USER, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Hello " + LoginActivity.USER, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -219,7 +219,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
         ContentValues cv = new ContentValues();
 
         String whereFind=DBHelper.NICKNAME+"=? AND "+DBHelper.PASS+"=?";
-        String[] whatFind=new String[] {MainActivity.USER, MainActivity.PASS};
+        String[] whatFind=new String[] {LoginActivity.USER, LoginActivity.PASS};
 
         Cursor c = db.query(DBHelper.TABLE_NAME2, null, whereFind, whatFind, null,null,null);
         c.moveToFirst(); //?
