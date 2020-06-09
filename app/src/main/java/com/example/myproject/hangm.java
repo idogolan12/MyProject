@@ -44,7 +44,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
     Button[] bt = new Button[G];
     TextView[] tv;
     ArrayList<String> words = new ArrayList<>();
-    int[] IVS = {R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f,R.drawable.g};
+    int[] IVS = {R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f,R.drawable.g}; //todo עשינו שימוש במערך של מזהי התמונות
     ImageView IV;
     InputStream is;
     InputStreamReader isr;
@@ -53,10 +53,10 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
     int size;
     int counter = 0;
     String wordesType;
-    int[] files = {R.raw.animals, R.raw.countries,R.raw.israelcities};
+    int[] files = {R.raw.animals, R.raw.countries,R.raw.israelcities}; //todo עשינו שימוש במערך של מזהי הקבצים
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { //todo: הפעולה מחברת את הרכיבים למשתנים, מקבלת באינטנט קליטה את המידע מהאקטיביטי הקודם המציין את הנושא שנבחר למשחק ומכניסה אותו לרכיב וורדסטייפ מסוג סטרינג, מזמנת את הפעולה לבניית משחק
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hangm);
         bt8 = findViewById(R.id.bt8);
@@ -74,7 +74,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
 
 
 
-    private void newGame() {
+    private void newGame() { //todo: הפעולה יודעת מאיזה קובץ לקרוא את המילים על פי המידע שנמצא ברכיב וורדסטייפ, היא מגרילה מילה מתוך הקובץ שנבחר, מגדריה את מספר האותיות במילה לגודל מערך מסוג טקסטוויו וקוראת לפעולה בורד1 ומעבירה אליה את מספר האותיות ואת המילה
         counter = 0;
         LLLet = findViewById(R.id.LLLet);
         //is = getResources().openRawResource(files[wordesType]);
@@ -108,7 +108,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-    private void Build_board1(int NumLet , String st1) {
+    private void Build_board1(int NumLet , String st1) { //todo הפעולה יוצרת רכיבי טקסטוויו לפי מספר האותיות במילה שהוגרלה
         //LLLet.clear...
         for (int i = 0; i < NumLet; i++) {
             tv[i] = new TextView(LLLet.getContext());
@@ -122,7 +122,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    private void Build_board2() {
+    private void Build_board2() { //TODO הפעולה יוצרת לוח של כפתורים בגודל שהוגדר ועליהם רשום את אותיות האלף בית לפי הסדר
         //BGT.clear...
         for (int i = 0; i < bt.length; i++) {
             bt[i] = new Button(BGT.getContext());

@@ -24,15 +24,15 @@ public class sbchangman extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) { //todo פעולה לבניית תפריט העושה שימוש בקובץ xml
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.my_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId())
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) { //todo פעולה להפעלת תפריט בהתאם לבחירת רכיב בתפריט
+        switch (item.getItemId()) //todo זיהוי הרכיב מתבצע ע"י המזהה id של כל רכיב
         {
             case R.id.credit:
                  go = new Intent(this,credit.class);
@@ -49,9 +49,9 @@ public class sbchangman extends AppCompatActivity {
 
     }
 
-    public void ams(View view) {
+    public void ams(View view) { //todo on click
         go = new Intent(this,hangm.class);
-        go.putExtra("wordesType","a");
+        go.putExtra("wordesType","a"); //todo מעבר לאקטיביטי כולל העברת מידע המציין את הנושא שנבחר
         startActivity(go);
     }
 

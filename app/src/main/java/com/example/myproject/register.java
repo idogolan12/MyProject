@@ -84,7 +84,7 @@ public class register extends AppCompatActivity implements View.OnClickListener 
         return flag;
     }
 
-    private boolean is_empty() {
+    /*private boolean is_empty() {
         sqdb=my_db.getWritableDatabase();
         int count=0;
         Cursor c=sqdb.query(DBHelper.TABLE_NAME,
@@ -96,7 +96,7 @@ public class register extends AppCompatActivity implements View.OnClickListener 
         }
         c.close();
         return (count==0);
-    }
+    }*/
 
    private void go_regist() {
         //adding reshuma in users table
