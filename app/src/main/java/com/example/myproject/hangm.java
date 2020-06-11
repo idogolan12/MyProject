@@ -38,8 +38,8 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
     GridLayout BGT;
     LinearLayout LLLet;
     int btnWidth = 100, btnHeight = 100;
-    //String a = "כיטחזוהדגבאתשרקצפעסנמלץףךןם"; //FOR ENGLISH
-    String a = "אבגדהוזחטיכלמנסעפצקרשתךףץםן"; //FOR HEBREW
+    String a = "כיטחזוהדגבאתשרקצפעסנמלץףךןם"; //FOR ENGLISH
+    //String a = "אבגדהוזחטיכלמנסעפצקרשתךףץםן"; //FOR HEBREW
     int G = a.length();
     Button[] bt = new Button[G];
     TextView[] tv;
@@ -56,7 +56,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
     int[] files = {R.raw.animals, R.raw.countries,R.raw.israelcities}; //todo עשינו שימוש במערך של מזהי הקבצים
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) { //todo: הפעולה מחברת את הרכיבים למשתנים, מקבלת באינטנט קליטה את המידע מהאקטיביטי הקודם המציין את הנושא שנבחר למשחק ומכניסה אותו לרכיב וורדסטייפ מסוג סטרינג, מזמנת את הפעולה לבניית משחק
+    protected void onCreate(Bundle savedInstanceState) { //todo: הפעולה מחברת את הרכיבים למשתנים, מקבלת באינטנט קליטה את המידע מהאקטיביטי הקודם המציין את הנושא שנבחר למשחק ומכניסה אותו לרכיב וורדסטייפ מסוג סטרינג, מזמנת את הפעולה לבניית משחק, מזמנת פעולה שבונה לו של כפתורים וכל כפתור מייצג אות לפי סדר האלף בית
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hangm);
         bt8 = findViewById(R.id.bt8);
@@ -74,7 +74,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
 
 
 
-    private void newGame() { //todo: הפעולה יודעת מאיזה קובץ לקרוא את המילים על פי המידע שנמצא ברכיב וורדסטייפ, היא מגרילה מילה מתוך הקובץ שנבחר, מגדריה את מספר האותיות במילה לגודל מערך מסוג טקסטוויו וקוראת לפעולה בורד1 ומעבירה אליה את מספר האותיות ואת המילה
+    private void newGame() { //todo: הפעולה יודעת מאיזה קובץ לקרוא את המילים על פי המידע שנמצא ברכיב וורדסטייפ, היא מגרילה מילה מתוך הקובץ שנבחר, מגדירה את מספר האותיות במילה לגודל מערך מסוג טקסטוויו וקוראת לפעולה בורד1 ומעבירה אליה את מספר האותיות ואת המילה
         counter = 0;
         LLLet = findViewById(R.id.LLLet);
         //is = getResources().openRawResource(files[wordesType]);
@@ -122,7 +122,7 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    private void Build_board2() { //TODO הפעולה יוצרת לוח של כפתורים בגודל שהוגדר ועליהם רשום את אותיות האלף בית לפי הסדר
+    private void Build_board2() { //TODO הפעולה יוצרת לוח של כפתורים באורך ה-א ב ועליהם רשום את אותיות האלף בית לפי הסדר
         //BGT.clear...
         for (int i = 0; i < bt.length; i++) {
             bt[i] = new Button(BGT.getContext());
@@ -138,15 +138,15 @@ public class hangm extends AppCompatActivity implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v) { //TODO הפעולה בהתחלה בודקת האם הצלחת לנחש אות הנמצאת במילה כל פעם שהצלחת לנחש אות היא מכניסה את האות לטקסוויו המתאים וצובעת את הלחצן המייצג את האות בצבע ירוק והיא סופרת את כמות הפעמים שהצלחת לנחש אות, וכל פעם שלא הצלחת לנחש אות היא צובעת את הלחצן המייצג את המילה בצבע אדום ומחליפה את התמונה הנתונה במשחק לתמונה הבאה וסופאת את כמות הטעויות, אם כמות ההצלחות שווה לאורך המילה אז היא סופרת את כמות הפעמים שהצלחת לנחש את כל המילה,פותחת תיבת דו שיח ושואלת אותך האם אתה רוצה להמשיך למילה הבאה או לצאת מהמשחק אם אתה יוצא מהמשחק אז היא מזמנת  את הפעולה "עדכוןציון" אם אתה מחליט להמשיך לשחק אז היא משאיקה את מספר הטעויות שטעית, את התמונה, ומזמנת את הפעולה "משחקחדש", אם לא הצלחת לנחש את המילה וטעית יותר פעמים ממה שהיה מותר לטעות היא פותחת תיבת דו שיח ושואלת אותך האם אתה רוצה לצאת מהשחק לגמרי , לצאת לבחר נושאים אחרים לשחק בהם או להמשיך לשחק באותו נושא ואחרי שבחרת את מה שאתה רוצה היא לוקחת את הציון האחרון שלך ומזמנת את הפעולה "מעדכןציון".כ
         String a = ((Button) v).getText().toString();
         if (v.getId() != R.id.bt1)
         {
             if (av.indexOf(((Button) v).getText().toString()) != -1) {
                 for (int i = 0; i < av.length(); i++) {
                     if (((Button) v).getText().equals(av.charAt(i) + "")) {
-                        //tv[av.length() - i -1].setText(((Button) v).getText());//FOR ENGLISH
-                        tv[i].setText(((Button) v).getText()); //FOR HEBREW
+                        tv[av.length() - i -1].setText(((Button) v).getText());//FOR ENGLISH
+                        //tv[i].setText(((Button) v).getText()); //FOR HEBREW
                         v.setBackgroundColor(0xFF00FF00);
                         v.setId(R.id.bt1);
                         counter++;

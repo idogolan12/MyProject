@@ -43,9 +43,48 @@ public class register extends AppCompatActivity implements View.OnClickListener 
         infa[1] = etpass.getText().toString();
         infa[2] = etmail.getText().toString();
         infa[3] = etphone.getText().toString();
-        if (infa[0].equals("") || infa[1].equals("") || infa[2].equals("") || infa[3].equals("")) {
+        if (infa[0].isEmpty() && infa[1].isEmpty() && infa[2].isEmpty() && infa[3].isEmpty()) {
             Toast.makeText(this, "please fill in...", Toast.LENGTH_SHORT).show();
-            return;
+        } else if (infa[0].isEmpty() && infa[1].isEmpty() && infa[2].isEmpty()) {
+            etnick.setError("enter your username");
+            etpass.setError("enter your password");
+            etmail.setError("enter your mail");
+            etnick.requestFocus();
+            etpass.requestFocus();
+            etmail.requestFocus();
+        } else if (infa[0].isEmpty() && infa[1].isEmpty() && infa[3].isEmpty()) {
+            etnick.setError("enter your username");
+            etpass.setError("enter your password");
+            etphone.setError("enter your phone");
+            etnick.requestFocus();
+            etpass.requestFocus();
+            etphone.requestFocus();
+        } else if (infa[0].isEmpty() && infa[2].isEmpty() && infa[3].isEmpty()) {
+            etnick.setError("enter your username");
+            etpass.setError("enter your mail");
+            etmail.setError("enter your phone");
+            etnick.requestFocus();
+            etmail.requestFocus();
+            etphone.requestFocus();
+        } else if (infa[1].isEmpty() && infa[2].isEmpty() && infa[3].isEmpty()) {
+            etpass.setError("enter your password");
+            etmail.setError("enter your mail");
+            etphone.setError("enter your phone");
+            etpass.requestFocus();
+            etmail.requestFocus();
+            etphone.requestFocus();
+        } else if (infa[0].isEmpty()) {
+        etnick.setError("enter your username");
+        etnick.requestFocus();
+    } else if (infa[1].isEmpty()) {
+        etpass.setError("enter your password");
+        etpass.requestFocus();
+    } else if (infa[2].isEmpty()) {
+        etmail.setError("enter your mail");
+        etmail.requestFocus();
+    } else if (infa[3].isEmpty()) {
+            etphone.setError("enter your phone");
+            etphone.requestFocus();
         }
         etnick.setText("");
         etpass.setText("");
@@ -53,16 +92,18 @@ public class register extends AppCompatActivity implements View.OnClickListener 
         etphone.setText("");
 
 
-
-
-        if (is_found(infa[0], infa[1])) {
-            Toast.makeText(this,
-                    "This name and pass is found",
-                    Toast.LENGTH_LONG).show();
-            finish();
-        } else
-            go_regist();
+        if (!infa[0].isEmpty() && !infa[1].isEmpty() && !infa[2].isEmpty() && !infa[3].isEmpty())
+        {
+            if (is_found(infa[0], infa[1])) {
+                Toast.makeText(this,
+                        "This name and pass is found",
+                        Toast.LENGTH_LONG).show();
+                finish();
+            } else
+                go_regist();
     }
+    }
+
 
     private boolean is_found(String s1, String s2) {
         boolean flag=false;
@@ -84,19 +125,7 @@ public class register extends AppCompatActivity implements View.OnClickListener 
         return flag;
     }
 
-    /*private boolean is_empty() {
-        sqdb=my_db.getWritableDatabase();
-        int count=0;
-        Cursor c=sqdb.query(DBHelper.TABLE_NAME,
-                null, null, null, null, null, null);
-        c.moveToFirst();
-        while (!c.isAfterLast()&&count==0) {
-            count++;
-            c.moveToNext();
-        }
-        c.close();
-        return (count==0);
-    }*/
+
 
    private void go_regist() {
         //adding reshuma in users table

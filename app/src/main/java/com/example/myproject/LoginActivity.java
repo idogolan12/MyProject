@@ -43,46 +43,34 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         infa[0] = etNickLog.getText().toString();
         infa[1] = etPassLog.getText().toString();
-        if (infa[0].equals("") || infa[1].equals("")) {
-            Toast.makeText(this, "please fill in...", Toast.LENGTH_SHORT).show();
-            return;
+        if (infa[0].isEmpty() && infa[1].isEmpty()) {
+            Toast.makeText(this, "Fields Are Empty!", Toast.LENGTH_SHORT).show();
+        }
+          else if (infa[0].isEmpty()) {
+            etNickLog.setError("Please enter your username");
+            etNickLog.requestFocus();
+        } else if (infa[1].isEmpty()) {
+            etPassLog.setError("Please enter your password");
+            etPassLog.requestFocus();
         }
         etNickLog.setText("");
         etPassLog.setText("");
-        if (is_empty())
-        {
-            Intent goReg=new Intent(this, register.class);
-            startActivity(goReg);
-            return;
-        }
-        if (is_found(infa[0], infa[1])) {
-            Toast.makeText(this,
-                    "Ok",
-                    Toast.LENGTH_LONG).show();
-            USER = infa[0];
-            PASS = infa[1];
-            Intent goStart=new Intent(this, home.class);
-            startActivity(goStart);
-        }
-        else {
-            Intent goReg=new Intent(this, register.class);
-            startActivity(goReg);
+        if (!infa[0].isEmpty() && !infa[1].isEmpty()) {
+            if (is_found(infa[0], infa[1])) {
+                Toast.makeText(this,
+                        "Ok",
+                        Toast.LENGTH_LONG).show();
+                USER = infa[0];
+                PASS = infa[1];
+                Intent goStart = new Intent(this, home.class);
+                startActivity(goStart);
+            } else {
+                Toast.makeText(this, "The username or password is incorrect" + "\n" + "Please check if you already have a user", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
-    private boolean is_empty() {
-        sqdb=my_db.getWritableDatabase();
-        int count=0;
-        Cursor c=sqdb.query(DBHelper.TABLE_NAME,
-                null, null, null, null, null, null);
-        c.moveToFirst();
-        while (!c.isAfterLast()&&count==0) {
-            count++;
-            c.moveToNext();
-        }
-        c.close();
-        return (count==0);
-    }
+
 
     private boolean is_found(String s1, String s2) {
         boolean flag=false;

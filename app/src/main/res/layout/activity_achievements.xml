@@ -5,8 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#ffffff"
+    android:background="@drawable/bg"
     tools:context=".achievements">
+
+    <TextView
+        android:id="@+id/tv12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:text="טבלת ניקוד"
+        android:textSize="25dp"
+        android:textColor="#AFDDD7"/>
 
     <TableLayout
         android:layout_width="match_parent"

@@ -30,7 +30,8 @@
         <activity
             android:name=".credit"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".hangm" />
+        <activity android:name=".hangm"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".sbchangman" />
         <activity
             android:name=".home"
